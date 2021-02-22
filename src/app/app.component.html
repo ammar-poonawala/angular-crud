@@ -1,0 +1,68 @@
+<div align='center'><h3>Angular Demo Crud Operations</h3></div>
+
+<div class="row">
+  
+  <div class="jumbotron">
+  <div class="form-group">
+    <label for="usr">Enter Id:</label>
+    <input type="number" [(ngModel)] = 'userId' class="form-control" id="usr" min="0">
+    <button class= 'btn btn-primary' (click)="searchUser()">Search</button>
+
+  </div>
+</div>
+</div>
+<br>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div style="text-align: center;">
+        <label ><b>User Data</b></label>
+
+      </div>
+
+<table class ="table  table-hover table-bordered" style="text-align: center;">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th colspan="2" style="text-align: center;">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let u of users">
+    <td>
+      {{u.id}}
+    </td>
+    <td>
+      {{u.name}}
+    </td>
+    <td>
+      {{u.age}}
+    </td>
+    <td>  
+      <button class= 'btn btn-warning' (click)="updateUser(u.id)"> Update</button>
+    </td>
+    <td>  
+      <button class= 'btn btn-danger' (click)="deleteUser(u)"> Delete</button>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<section class="form-section">
+  <h2>{{formTitle}}</h2>
+  <form [formGroup]='userFormGroup' (ngSubmit)='addUser()' >
+    <input class= "form-control" type="text" formControlName='id' placeholder="Enter ID" required  />
+    <input class= "form-control" type="text" formControlName='name' placeholder="Enter Name"   required/>
+    <input class= "form-control" type="number" min="0" formControlName='age' placeholder="Enter Age" required  />
+    <input class= "form-control" type="email" formControlName='email' placeholder="Enter Email"  required />
+    <input class= "form-control" type="tel"  pattern="[1-9]{1}[0-9]{9}" formControlName='contact' placeholder="Enter Contact Number" required  />
+    <button class= 'btn btn-success'>Add User</button>
+  </form>
+</section>
+</div>
+<br>

@@ -1,0 +1,17 @@
+.jumbotron {
+    text-align: center;
+    margin: auto;
+}
+
+section.form-section {
+    text-align: center;
+    border: 1px solid black;
+    width: 50%;
+    margin: auto;
+    padding: 3%;
+    margin-top: 5%;
+}
+
+button.btn.btn-success {
+    margin-top: 20px;
+}
